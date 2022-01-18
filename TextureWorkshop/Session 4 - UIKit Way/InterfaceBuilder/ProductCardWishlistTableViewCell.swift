@@ -107,17 +107,17 @@ class ProductCardWishlistTableViewCell: UITableViewCell {
         switch product?.description.shop.type {
         case .officialStore:
             shopBadgeImage.isHidden = false
-            shopBadgeImage.image = UIImage(named: "official_store")
-            // showShopBadge(with: UIImage(named: "official_store"))
+            //shopBadgeImage.image = UIImage(named: "official_store")
+            showShopBadge(with: UIImage(named: "official_store"))
             
         case .powerMerchant:
             shopBadgeImage.isHidden = false
-            shopBadgeImage.image = UIImage(named: "power_merchant")
-            // showShopBadge(with: UIImage(named: "power_merchant"))
+            //shopBadgeImage.image = UIImage(named: "power_merchant")
+            showShopBadge(with: UIImage(named: "power_merchant"))
             
         default:
-            shopBadgeImage.isHidden = true
-            // hideShopBadge()
+            //shopBadgeImage.isHidden = true
+            hideShopBadge()
         }
         
         
@@ -141,7 +141,6 @@ class ProductCardWishlistTableViewCell: UITableViewCell {
          it can be broken and have glitch on the ui.
         */
         
-        /*
         if totalRaters > 0 && isFreeShipping {
             ratingView.isHidden = false
             totalRatersLabel.isHidden = false
@@ -190,7 +189,7 @@ class ProductCardWishlistTableViewCell: UITableViewCell {
             freeShippingGapToSuperview.isActive = false
             shopNameGapToSuperview.isActive = true
         }
- */
+
     }
     
     private func hideShopBadge() {
