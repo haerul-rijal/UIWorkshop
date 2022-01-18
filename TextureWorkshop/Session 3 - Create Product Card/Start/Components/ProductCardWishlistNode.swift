@@ -11,7 +11,7 @@ class ProductCardWishlistNode: ASDisplayNode {
     let backgroundNode: ASDisplayNode
     let activeNode: ASImageNode
     let inactiveNode: ASImageNode
-    private var isWishList = false
+    var isWishList = false
     override init() {
         backgroundNode = ASDisplayNode()
         backgroundNode.backgroundColor = .lightGray

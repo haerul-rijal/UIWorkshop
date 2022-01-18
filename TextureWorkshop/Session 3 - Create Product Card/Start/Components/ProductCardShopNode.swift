@@ -32,6 +32,8 @@ class ProductCardShopNode: ASDisplayNode {
                 .foregroundColor: UIColor.darkGray
             ]
         )
+        nameNode.style.flexGrow = 1
+        nameNode.style.flexShrink = 1
         super.init()
         automaticallyManagesSubnodes = true
     }
