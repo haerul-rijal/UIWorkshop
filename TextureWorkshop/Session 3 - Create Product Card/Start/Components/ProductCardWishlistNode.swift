@@ -11,7 +11,7 @@ class ProductCardWishlistNode: ASDisplayNode {
     let backgroundNode: ASDisplayNode
     let activeNode: ASImageNode
     let inactiveNode: ASImageNode
-    
+    private var isWishList = false
     override init() {
         backgroundNode = ASDisplayNode()
         backgroundNode.backgroundColor = .lightGray
@@ -27,14 +27,19 @@ class ProductCardWishlistNode: ASDisplayNode {
         
         super.init()
         automaticallyManagesSubnodes = true
+        activeNode.addTarget(self, action: #selector(changeWishlistState), forControlEvents: .touchUpInside)
+        inactiveNode.addTarget(self, action: #selector(changeWishlistState), forControlEvents: .touchUpInside)
     }
     
-    @objc func changeWishlistState() { }
+    @objc func changeWishlistState() {
+        isWishList = !isWishList
+        setNeedsLayout()
+    }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let wishlistInset = ASInsetLayoutSpec(
             insets: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2),
-            child: activeNode
+            child: isWishList ? activeNode : inactiveNode
         )
         
         return ASBackgroundLayoutSpec(
